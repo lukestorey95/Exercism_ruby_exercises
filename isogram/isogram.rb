@@ -1,7 +1,8 @@
-=begin
-Write your code for the 'Isogram' exercise in this file. Make the tests in
-`isogram_test.rb` pass.
+class Isogram
 
-To get started with TDD, see the `README.md` file in your
-`ruby/isogram` directory.
-=end
+  def self.isogram?(string)
+    return true if string.empty?
+    letters = string.downcase.chars.select{ |x| x[/\w/] }
+    letters == letters.uniq
+  end
+end
