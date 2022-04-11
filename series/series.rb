@@ -1,7 +1,9 @@
-=begin
-Write your code for the 'Series' exercise in this file. Make the tests in
-`series_test.rb` pass.
+class Series
+  def initialize(string)
+    @array = string.chars
+  end
 
-To get started with TDD, see the `README.md` file in your
-`ruby/series` directory.
-=end
+  def slices(x)
+    x > @array.length ? (raise ArgumentError) : @array.each_cons(x).map {|a| a.join}
+  end
+end
