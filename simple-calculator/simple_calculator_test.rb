@@ -15,26 +15,32 @@ class SimpleCalculatorTest < Minitest::Test
   end
 
   def test_rescues_division_by_0_exception
+    
     assert_equal "Division by zero is not allowed.", SimpleCalculator.calculate(33, 0, "/")
   end
 
-  def test_no_number_first_operand_raises_exception
+  def test_no_number_first_ozperand_raises_exception
+    
     assert_raises(ArgumentError) { SimpleCalculator.calculate('1', 2, '+') }
   end
 
   def test_no_number_second_operand_raises_exception
+    
     assert_raises(ArgumentError) { SimpleCalculator.calculate(1, '2', '+') }
   end
 
   def test_raises_exception_for_non_valid_operations
+  
     assert_raises(SimpleCalculator::UnsupportedOperation) { SimpleCalculator.calculate(1, 2, '**') }
   end
 
   def test_raises_exception_when_operation_is_nil
+    
     assert_raises(SimpleCalculator::UnsupportedOperation) { SimpleCalculator.calculate(1, 2, nil) }
   end
 
   def test_raises_exception_when_operation_is_an_empty_string
+    
     assert_raises(SimpleCalculator::UnsupportedOperation) { SimpleCalculator.calculate(1, 2, '') }
   end
 end
